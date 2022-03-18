@@ -20,7 +20,13 @@ function Cuisine() {
   },[params.type]);
 
   return <Grid>
-    
+    {cuisine.map((item) => {
+      return(
+        <Card key={item.id}>
+
+        </Card>
+      )
+    })}
   </Grid>;
 }
 
