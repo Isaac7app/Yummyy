@@ -3,17 +3,24 @@ import {useState} from 'react';
 import {FaSearch} from 'react-icons/fa';
 
 function Search() {
+  const [input, setInput] = useState("");
+
   return (
-    <form>
-        <input type="text" />
-    </form>
+    <FormStyle>
+      <div>
+        <FaSearch></FaSearch>
+        <input type="text" value={input}/>
+        </div>
+    </FormStyle>
   )
 }
 
 const FormStyle = styled.form`
    margin :0rem 20rem;
-   position: relative;
-   width: 100%;
+   div{
+      width: 100%;
+      position: relative;
+   }
    input {
        border: none;
        background: linear-gradient(35deg, #494949, #313131);
@@ -23,11 +30,15 @@ const FormStyle = styled.form`
        border: none;
        border-radius: 1rem;
        outline: none;
+       width: 100%;
    }
    svg{
        position: absolute;
        top: 50%;
+       left: 0%;
+       transform: translate(100%, -50%);
+       color: white;
    }
 `;
 
-export default Search
+export default Search;
