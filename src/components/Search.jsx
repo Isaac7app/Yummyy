@@ -9,7 +9,10 @@ function Search() {
     <FormStyle>
       <div>
         <FaSearch></FaSearch>
-        <input type="text" value={input}/>
+        <input
+         onChange={(e) => setInput(e.target.value)}
+         type="text" 
+         value={input}/>
         </div>
     </FormStyle>
   )
