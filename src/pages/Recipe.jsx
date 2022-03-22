@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 function Recipe() {
     let params = useParams();
     const [details, setDetails] = useState({});
+    const [activeTab, setActiveTab] = useState('instructions');
 
     const fetchDetails = async () => {
         const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
@@ -23,8 +24,14 @@ function Recipe() {
         <img src={details.image} alt="" />
         </div>
         <Info>
-            <Button>Instructions</Button>
-            <Button>Ingredians</Button>
+            <Button className={activeTab === 'instructions' ? 'active' : ''}
+              onClick={() => setActiveTab("instructions")}>
+                Instructions
+                </Button>
+            <Button className={activeTab === 'ingredients' ? 'active' : ''}
+              onClick={() => setActiveTab("ingredients")}>
+                Ingredians
+                </Button>
         </Info>
     </DetailWrapper>
   )
