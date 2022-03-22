@@ -11,6 +11,7 @@ function Recipe() {
         const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
         const detailData = await data.json();
         setDetails(detailData);
+        console.log(detailData)
     };
 
     useEffect(() => {
@@ -30,11 +31,21 @@ function Recipe() {
             </Button>
           <Button className={activeTab === 'ingredients' ? 'active' : ''}
             onClick={() => setActiveTab("ingredients")}>
-            Ingredians
+            ingredients
             </Button>
-            <div>
+            {activeTab === "instructions" && (
+                <div>
                 <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3>
+                <h3 dangerouslySetInnerHTML={{__html: details.instructions}}></h3>
             </div>
+            )}
+            {activeTab === "ingredients" && (
+                <ul>
+                {details.extendedIngredients.map((ingredient) => (
+                    <li key={ingredient.id}>{ingredient.original}</li>
+                ))}
+            </ul>
+            )} 
         </Info>
     </DetailWrapper>
   )
