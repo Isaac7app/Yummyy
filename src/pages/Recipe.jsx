@@ -24,14 +24,17 @@ function Recipe() {
         <img src={details.image} alt="" />
         </div>
         <Info>
-            <Button className={activeTab === 'instructions' ? 'active' : ''}
-              onClick={() => setActiveTab("instructions")}>
-                Instructions
-                </Button>
-            <Button className={activeTab === 'ingredients' ? 'active' : ''}
-              onClick={() => setActiveTab("ingredients")}>
-                Ingredians
-                </Button>
+        <Button className={activeTab === 'instructions' ? 'active' : ''}
+          onClick={() => setActiveTab("instructions")}>
+            Instructions
+            </Button>
+          <Button className={activeTab === 'ingredients' ? 'active' : ''}
+            onClick={() => setActiveTab("ingredients")}>
+            Ingredians
+            </Button>
+            <div>
+                <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3>
+            </div>
         </Info>
     </DetailWrapper>
   )
