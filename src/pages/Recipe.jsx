@@ -78,6 +78,7 @@ const Button = styled.button`
     border: 2px solid black;
     margin-right: 2rem;
     font-weight: 600;
+    cursor: pointer;
 `;
 
 const Info = styled.div`
